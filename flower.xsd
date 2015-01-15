@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:simpleType name="unsignedFloat">
+        <xs:restriction base="xs:float">
+            <xs:minExclusive value="0"/>
+            <xs:maxExclusive value="200"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="soilType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Podzolic"/>
+            <xs:enumeration value="Dirt"/>
+            <xs:enumeration value="Sod-Podzolic"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="multiplyingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Leaves"/>
+            <xs:enumeration value="Cuttings"/>
+            <xs:enumeration value="Seeds"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="flower">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="plant" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="plant">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="soil" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="origin" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="visual_parameters" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="growing_tips" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="multiplying" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="name" type="xs:Name"/>
+
+    <xs:element name="soil" type="soilType"/>
+
+    <xs:element name="origin" type="xs:Name"/>
+
+    <xs:element name="visual_parameters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="stem_color" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="flower_color" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="average_size" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="stem_color" type="xs:Name"/>
+
+    <xs:element name="flower_color" type="xs:Name"/>
+
+    <xs:element name="average_size" type="unsignedFloat"/>
+
+    <xs:element name="growing_tips">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="temperature" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="photophilous" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="watering" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="temperature" type="unsignedFloat"/>
+
+    <xs:element name="photophilous" type="xs:boolean"/>
+
+    <xs:element name="watering" type="xs:double"/>
+
+    <xs:element name="multiplying" type="multiplyingType"/>
+
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flower xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="flower.xsd">
+    <plant id="id1">
+        <name>Rose</name>
+        <soil>Dirt</soil>
+        <origin>Ukraine</origin>
+        <visual_parameters>
+            <stem_color>Green</stem_color>
+            <flower_color>Red</flower_color>
+            <average_size>80.4</average_size>
+        </visual_parameters>
+        <growing_tips>
+            <temperature>20</temperature>
+            <photophilous>true</photophilous>
+            <watering>1000</watering>
+        </growing_tips>
+        <multiplying>Leaves</multiplying>
+    </plant>
+    <plant id="id2">
+        <name>Orchid</name>
+        <soil>Podzolic</soil>
+        <origin>Spain</origin>
+        <visual_parameters>
+            <stem_color>Green</stem_color>
+            <flower_color>Red</flower_color>
+            <average_size>60</average_size>
+        </visual_parameters>
+        <growing_tips>
+            <temperature>14</temperature>
+            <photophilous>false</photophilous>
+            <watering>240</watering>
+        </growing_tips>
+        <multiplying>Seeds</multiplying>
+    </plant>
+</flower>
